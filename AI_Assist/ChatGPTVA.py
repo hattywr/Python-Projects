@@ -1,6 +1,7 @@
 import speech_recognition as sr
 import pyttsx3
 import sys
+import multiprocessing
 
 import os
 #from dotenv import load_dotenv
@@ -70,7 +71,10 @@ def main():
     r = sr.Recognizer()
     messages = []
     while True:        
-        text = record_text(r)
+        text = multiprocessing.Process(record_text(r))
+        text.start()
+        text.join
+        #text = record_text(r)
         messages.append({"role": "user","content": text})
         if (text.find("terminate app") != -1):
             print("Program received termination code.")
