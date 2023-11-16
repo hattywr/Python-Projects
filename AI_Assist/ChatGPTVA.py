@@ -10,7 +10,7 @@ import os
 
 #comment out the api key if code is published
 import openai
-openai.api_key = "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"
+openai.api_key = "PLACE FOR API KEY"
 
 def SpeakText(command):
     engine = pyttsx3.init()
